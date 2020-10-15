@@ -1,5 +1,17 @@
 # Black Panther Fitness
 
+## project tips
+### testing
+to run a  report:
+- coverage run --source=app-name manage.py test
+- coverage report
+to create an interactive html repot: 
+- coverage html
+- python3 -m http.server
+
+# other
+shift + F5      hard page refresh
+
 <!-- <img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
 
 Welcome Deoh,
