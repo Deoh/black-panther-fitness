@@ -14,6 +14,13 @@ shift + F5      hard page refresh
 
 my-auto     centers an element virtically
 
+
+## navbar
+
+#  nutrition tab for subscribers of premium server
+#   workout tab for subscribers of basic service
+members get 10% discount on all products in store
+
 <!-- <img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
 
 Welcome Deoh,

@@ -3,8 +3,17 @@ html {
 }
 
 .homepage-container {
-    height: 90vh;
-    /* background: url('/media/bg.jpg') no-repeat center center fixed;  */
+    height: 75vh;
+    background: url('/media/fp.jpg') no-repeat center center fixed; 
     background-color: grey;
     background-size: cover; 
+}
+
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
 }
