@@ -17,3 +17,11 @@ html {
     height: 1.5rem;
     width: 1.5rem;
 }
+
+.mobile-search-bar {
+    margin-top: 72px;
+}
+
+a.nav-link {
+    color: inherit;
+}
