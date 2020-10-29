@@ -5,7 +5,7 @@ from django.db import models
 
 class Category(models.Model):
 
-    class Meta:  # fix categorys anme in admin to categories
+    class Meta:  # fix 'categorys' name in admin to 'categories'
         verbose_name_plural = 'Categories'
 
     name = models.CharField(max_length=254)
