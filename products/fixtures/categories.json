@@ -1,0 +1,47 @@
+[
+  {
+    "pk": 1,
+    "model": "products.category",
+    "fields": { "name": "activewear", "friendly_name": "Activewear" }
+  },
+  {
+    "pk": 2,
+    "model": "products.category",
+    "fields": { "name": "dumbbells", "friendly_name": "Dumbbells" }
+  },
+  {
+    "pk": 3,
+    "model": "products.category",
+    "fields": { "name": "water_bottles", "friendly_name": "Water Bottles" }
+  },
+  {
+    "pk": 4,
+    "model": "products.category",
+    "fields": { "name": "deals", "friendly_name": "Deals" }
+  },
+  {
+    "pk": 5,
+    "model": "products.category",
+    "fields": { "name": "proteins", "friendly_name": "Proteins" }
+  },
+  {
+    "pk": 6,
+    "model": "products.category",
+    "fields": { "name": "trainers", "friendly_name": "Trainers" }
+  },
+  {
+    "pk": 7,
+    "model": "products.category",
+    "fields": { "name": "resistance_bands", "friendly_name": "Resistance Bands" }
+  },
+  {
+    "pk": 8,
+    "model": "products.category",
+    "fields": { "name": "new_arrivals", "friendly_name": "New Arrivals" }
+  },
+  {
+    "pk": 9,
+    "model": "products.category",
+    "fields": { "name": "shirts", "friendly_name": "Shirts" }
+  }
+]
