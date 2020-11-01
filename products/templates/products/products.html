@@ -1,12 +1,69 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
+{% block product_nav %}
+    <div class="d-lg-none">
+        <div class="collapse navbar-collapse" id="navbarMenu2">
+            <ul class="navbar-nav mx-auto">
+				<li class="nav-item dropdown">
+					<a class="nav-link btn-lg" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+						aria-expanded="false">Sportswear</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="#">Activewear</a>
+						<a class="dropdown-item" href="#">Trainers</a>
+						<a class="dropdown-item" href="#">Shirts</a>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link btn-lg" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+						aria-expanded="false">accessories</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="#">Dumbbells</a>
+						<a class="dropdown-item" href="#">Water Bottles</a>
+						<a class="dropdown-item" href="#">Resistance Bands</a>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link btn-lg" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+						aria-expanded="false">vitamins & heath</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="#">Deals</a>
+						<a class="dropdown-item" href="#">Proteins</a>
+						<a class="dropdown-item" href="#">New Arrivals</a>
+					</div>
+				</li>
+            </ul>
         </div>
     </div>
+{% endblock %}
+
+{% block page_header %}
+    <ul class="nav justify-content-center navbar-dark bg-dark d-none d-lg-flex nav-link-color">
+        <li class="nav-item dropdown">
+            <a class="nav-link btn-lg" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sportswear</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Activewear</a>
+                <a class="dropdown-item" href="#">Trainers</a>
+                <a class="dropdown-item" href="#">Shirts</a>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link btn-lg" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">accessories</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Dumbbells</a>
+                <a class="dropdown-item" href="#">Water Bottles</a>
+                <a class="dropdown-item" href="#">Resistance Bands</a>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link btn-lg" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">vitamins & heath</a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Deals</a>
+                <a class="dropdown-item" href="#">Proteins</a>
+                <a class="dropdown-item" href="#">New Arrivals</a>
+            </div>
+        </li>
+    </ul>
 {% endblock %}
 
 {% block content %}

@@ -28,10 +28,10 @@
 </head>
 
 <body>
-    <header class="container-fluid">
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <header class="container-fluid p-0">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <!-- hamburger button -->
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
 	           <span class="navbar-toggler-icon"></span>
 			</button>
             <!-- nav link -->
@@ -61,7 +61,7 @@
 			    Black Panther Fitness
 			  </a>
             <!-- hamburger menu -->
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<div class="collapse navbar-collapse" id="navbarMenu">
 				<ul class="navbar-nav mx-auto">
 					<li class="nav-item">
 						<a class="nav-link" href="#">About Us</a>
@@ -76,7 +76,10 @@
 						<a class="nav-link" href="#">Classes</a>
 					</li>
 				</ul>
+                {% block product_nav %}
+                {% endblock %}
 			</div>
+
             <!-- search form -->
             <form class="form d-none d-lg-block" method="GET" action="">
 				<div class="input-group w-100">
@@ -92,6 +95,8 @@
 			</form>
             {% include 'includes/mobile-search.html' %}
 		</nav>
+            {% block page_header %}
+            {% endblock %}            
         <div id="delivery-banner" class="row text-center">
             <div class="col">
                 <h4 class="logo-font my-1">Free delivery on orders over £{{ free_delivery_threshold }}!</h4>                
@@ -103,8 +108,6 @@
         <div class="message-container"></div>
     {% endif %}
 
-    {% block page_header %}
-    {% endblock %}
 
     {% block content %}
     {% endblock %}
