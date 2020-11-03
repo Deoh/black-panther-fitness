@@ -3,37 +3,7 @@
 
 {% block product_nav %}
     <div class="d-lg-none">
-        <div class="collapse navbar-collapse" id="navbarMenu2">
-            <ul class="navbar-nav mx-auto">
-				<li class="nav-item dropdown">
-					<a class="nav-link btn-lg" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-						aria-expanded="false">Sportswear</a>
-					<div class="dropdown-menu">
-						<a class="dropdown-item" href="#">Activewear</a>
-						<a class="dropdown-item" href="#">Trainers</a>
-						<a class="dropdown-item" href="#">Shirts</a>
-					</div>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link btn-lg" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-						aria-expanded="false">accessories</a>
-					<div class="dropdown-menu">
-						<a class="dropdown-item" href="#">Dumbbells</a>
-						<a class="dropdown-item" href="#">Water Bottles</a>
-						<a class="dropdown-item" href="#">Resistance Bands</a>
-					</div>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link btn-lg" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-						aria-expanded="false">vitamins & heath</a>
-					<div class="dropdown-menu">
-						<a class="dropdown-item" href="#">Deals</a>
-						<a class="dropdown-item" href="#">Proteins</a>
-						<a class="dropdown-item" href="#">New Arrivals</a>
-					</div>
-				</li>
-            </ul>
-        </div>
+        {% include 'includes/mobile_product_nav.html' %}
     </div>
 {% endblock %}
 
@@ -71,7 +41,8 @@
         <!-- page title -->
 		<div class="row">
 			<div class="col text-center mt-3">
-				<h2 class="uppercase-font">Products</h2>
+				<h2 class="uppercase-font">{{category.friendly_name}}Products</h2>
+                <p>{% for cat in current_categories %}{{cat.friendly_name}}{% endfor %}</p>
 				<hr class="w-50 mb-1">
 			</div>
 		</div>

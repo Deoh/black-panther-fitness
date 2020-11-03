@@ -1,0 +1,31 @@
+<div class="collapse navbar-collapse" id="navbarMenu2">
+            <ul class="navbar-nav mx-auto">
+				<li class="nav-item dropdown">
+					<a class="nav-link btn-lg" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+						aria-expanded="false">Sportswear</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="{% url 'products' %}?category=activewear">Activewear</a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=trainers">Trainers</a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=shirts">Shirts</a>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link btn-lg" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+						aria-expanded="false">accessories</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="{% url 'products' %}?category=dumbbells">Dumbbells</a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=water_bottles">Water Bottles</a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=resistance_bands">Resistance Bands</a>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link btn-lg" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+						aria-expanded="false">vitamins & heath</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="{% url 'products' %}?category=deals">Deals</a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=proteins">Proteins</a>
+                        <a class="dropdown-item" href="{% url 'products' %}?category=new_arrivals">New Arrivals</a>
+					</div>
+				</li>
+            </ul>
+        </div>
