@@ -14,22 +14,25 @@
             <a class="dropdown-item" href="{% url 'products' %}?category=activewear">Activewear</a>
             <a class="dropdown-item" href="{% url 'products' %}?category=trainers">Trainers</a>
             <a class="dropdown-item" href="{% url 'products' %}?category=shirts">Shirts</a>
+            <a class="dropdown-item" href="{% url 'products' %}?category=activewear,trainers,shirts">All Sportswear</a>
         </div>
     </li>
     <li class="nav-item">
-        <a class="nav-link btn-lg" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">accessories</a>
+        <a class="nav-link btn-lg" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Accessories</a>
         <div class="dropdown-menu">
             <a class="dropdown-item" href="{% url 'products' %}?category=dumbbells">Dumbbells</a>
             <a class="dropdown-item" href="{% url 'products' %}?category=water_bottles">Water Bottles</a>
             <a class="dropdown-item" href="{% url 'products' %}?category=resistance_bands">Resistance Bands</a>
+            <a class="dropdown-item" href="{% url 'products' %}?category=dumbbells,water_bottles,resistance_bands">All Accessories</a>
         </div>
     </li>
     <li class="nav-item">
-        <a class="nav-link btn-lg" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">vitamins & heath</a>
+        <a class="nav-link btn-lg" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Vitamins & Heath</a>
         <div class="dropdown-menu">
             <a class="dropdown-item" href="{% url 'products' %}?category=deals">Deals</a>
             <a class="dropdown-item" href="{% url 'products' %}?category=proteins">Proteins</a>
             <a class="dropdown-item" href="{% url 'products' %}?category=new_arrivals">New Arrivals</a>
+            <a class="dropdown-item" href="{% url 'products' %}?category=deals,proteins,new_arrivals">All Vitamins & Health</a>
         </div>
     </li>
 </ul>

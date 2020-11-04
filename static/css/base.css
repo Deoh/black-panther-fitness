@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   border: 0;
-
 }
 
 html {
@@ -82,6 +81,14 @@ a.nav-link {
 	z-index: -1;
 } */
 
+a.category-badge {
+    color: #000 !important;
+}
+
+a.category-badge > span.badge:hover {
+    background: #ec9410 !important;
+    color: #fff !important;
+}
 
 @media (min-width: 992px) {    
     .navbar-nav {

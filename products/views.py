@@ -17,14 +17,19 @@ def all_products(request):
     direction = None
 
     if request.GET:
-        # sort product functionality by price, rating and category
+        """ sort product functionality by price, rating and category """
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
             sort = sortkey
+
             # to allow case insensitive sorting on the name field
             if sortkey == 'name':
                 sortkey = 'lower_name'
                 products = products.annotate(lower_name=Lower('name'))
+
+            # force categories to be sorted by name field instead of their id
+            if sortkey == 'category':
+                sortkey = 'category__name'
 
             if 'direction' in request.GET:
                 direction = request.GET['direction']
@@ -51,7 +56,7 @@ def all_products(request):
                 description__icontains=query)
             products = products.filter(queries)
 
-        current_sorting = f'{sort}_{direction}'
+    current_sorting = f'{sort}_{direction}'
 
     context = {
         'products': products,
