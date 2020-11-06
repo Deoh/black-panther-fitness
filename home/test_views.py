@@ -5,9 +5,9 @@ from django.test import TestCase
 """
 We want to test not only that our views return a successful HTTP response
 and that they're using the proper templates.
-But also what they can do. in this case specifically
-adding, editing, toggling and deleting items.
+But also what they can do.
 """
+
 
 class TestViews(TestCase):
 
@@ -15,4 +15,3 @@ class TestViews(TestCase):
         response = self.client.get('/')
         self.assertEqual(response.status_code, 200)  # testing for a successful HTTP response
         self.assertTemplateUsed(response, 'home/index.html')  # To confirm the view uses the correct template.
-
