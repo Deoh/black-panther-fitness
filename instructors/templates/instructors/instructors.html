@@ -8,14 +8,22 @@
 {% endblock %}
 
 {% block content %}
+    <!-- Page Title -->
+    <div class="instructor-homepage mb-6">
+        <div class="overlay"></div>
+		<div class="container h-100">
+			<div class="row h-100 align-items-center">
+				<div class="col-5 mx-auto">
+					<div class="text-center text-uppercase text-white">
+						<h1>instructors</h1>
+						<span class="subheading">We have some of the best and most higly skilled instructors around. qualified at some of the best places</span>
+					</div>
+				</div>
+			</div>
+		</div>
+    </div>
+    <!-- Instructors -->
     <div class="container">
-        <!-- Page Title -->
-        <div class="row">
-            <div class="col text-center">
-                <h2 class="text-uppercase">Instructors</h2>
-            </div>
-        </div>
-        <!-- Instructors -->
         <div class="row">    
                 <div class="col">
                     {% for instructor in instructors %}

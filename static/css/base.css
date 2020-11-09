@@ -81,6 +81,16 @@ a.nav-link {
 	z-index: -1;
 } */
 
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #212529;
+    opacity: .6;
+}
+
 /* product category button */
 a.category-badge {
     color: #000 !important;
@@ -105,6 +115,14 @@ a.category-badge > span.badge:hover {
 }
 
 /* Instructor page */
+
+.instructor-homepage {
+    position: relative;
+    height: 75vh;
+    background: url('/media/jonathan-borba.jpg') no-repeat center center;
+    background-size: cover; 
+    margin-bottom: 50px;
+}
 
 .category {
     text-transform: capitalize;
