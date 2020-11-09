@@ -8,16 +8,74 @@
 {% endblock %}
 
 {% block content %}
-    <container>
+    <div class="container">
+        <!-- Page Title -->
         <div class="row">
-            <div class="col">
+            <div class="col text-center">
                 <h2 class="text-uppercase">Instructors</h2>
             </div>
         </div>
-        <div class="row">
-            <div class="col">
-            
-            </div>
+        <!-- Instructors -->
+        <div class="row">    
+                <div class="col">
+                    {% for instructor in instructors %}
+                        {% if forloop.counter|divisibleby:2 %}
+                        <div class="card instructor-card border-0">
+                            <div class="row no-gutters">
+                                <div class="col-md-5">
+                                    <div class="card-image">
+                                        <a href="">
+                                            <img src="{{ instructor.image.url }}" class="card-img img-fluid rounded-circle" alt="...">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-7 my-auto">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ instructor.name }}</h5>
+                                        <h6 class="category">
+                                            <ul >
+                                                {% for cat in instructor.category.all %}
+                                                    <li>{{cat}}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        </h6>
+                                        <div class="card-text">{{ instructor.description }}</div>
+                                        <div class="card-footer">social media links</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="card instructor-card border-0">
+                            <div class="row no-gutters">
+                                
+                                <div class="col-md-5 order-md-2">
+                                    <div class="card-image">
+                                        <a href="">
+                                            <img src="{{ instructor.image.url }}" class="card-img img-fluid rounded-circle" alt="...">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-7 my-auto order-md-1">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ instructor.name }}</h5>
+                                        <h6 class="category">
+                                            <ul >
+                                                {% for cat in instructor.category.all %}
+                                                    <li>{{cat}}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        </h6>
+                                        <div class="card-text">{{ instructor.description }}</div>
+                                        <div class="card-footer">social media links</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                </div> 
         </div>
-    </container>
+
+    </div>
 {% endblock %}

@@ -19,8 +19,7 @@ class Category(models.Model):
 
 
 class Instructor(models.Model):
-    category = models.ForeignKey(
-        'Category', null=True, blank=True, on_delete=models.SET_NULL)
+    category = models.ManyToManyField('Category')
     name = models.CharField(max_length=254)
     qualification = models.CharField(max_length=254)
     qualification_date = models.DateField()

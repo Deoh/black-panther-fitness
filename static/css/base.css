@@ -104,6 +104,22 @@ a.category-badge > span.badge:hover {
     cursor: pointer;
 }
 
+/* Instructor page */
+
+.category {
+    text-transform: capitalize;
+    font-weight: 700;
+    color: #9A9A9A;
+}
+
+h6.category>ul {
+    list-style-type: none;
+}
+
+.instructor-card {
+    margin: 50px 0;
+}
+
 @media (min-width: 992px) {    
     .navbar-nav {
         margin-top: 0;
