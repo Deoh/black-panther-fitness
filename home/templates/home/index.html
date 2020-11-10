@@ -14,34 +14,47 @@
             
         </div>
     </div>
-    <!-- website USP links section -->
-    <div class="container content-padding">
-        <div class="row">
-            <div class="col-12 col-md-4">
-                <div class="info">
-                    <a href="">
-                        <div><i class="fas fa-dumbbell fa-7x"></i></div>
-                        <h5 class="info-title">Fitness package</h5>
-                    </a> 
-                </div> 					
+    <!-- Features section -->
+    <div class="features">
+        <div class="container">
+            <!-- title -->
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <h2 class="title">Features</h2>
+                    <h5 class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur nisi corporis amet suscipit voluptas doloribus?</h5>
+                </div>
             </div>
-            <div class="col-12 col-md-4">
-                <div class="info">
-                    <a href="{% url 'instructors' %}">
-                        <div><i class="fas fa-running fa-7x"></i></div>
-                        <h5 class="info-title">Instructor</h5>
-                    </a> 
-                </div> 					
+            <!-- features links -->
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <div class="info">
+                        <a href="">
+                            <div class="icon"><i class="fas fa-dumbbell fa-6x"></i></div>
+                            <h5 class="info-title">Fitness package</h5>
+                            <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo odit vero adipisci veniam libero molestias.</p>
+                        </a> 
+                    </div> 					
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="info">
+                        <a href="{% url 'instructors' %}">
+                            <div class="icon"><i class="fas fa-running fa-6x"></i></div>
+                            <h5 class="info-title">Instructor</h5>
+                            <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo odit vero adipisci veniam libero molestias.</p>
+                        </a> 
+                    </div> 					
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="info">
+                        <a href="{% url 'products' %}">
+                            <div class="icon"><i class="fas fa-shopping-cart fa-6x"></i></div>
+                            <h5 class="info-title">Store</h5>
+                            <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo odit vero adipisci veniam libero molestias.</p>
+                        </a> 
+                    </div> 					
+                </div>
+                
             </div>
-            <div class="col-12 col-md-4">
-                <div class="info">
-                    <a href="{% url 'products' %}">
-                        <div><i class="fas fa-shopping-cart fa-7x"></i></div>
-                        <h5 class="info-title">Store</h5>
-                    </a> 
-                </div> 					
-            </div>
-            
         </div>
     </div>
 {% endblock %}

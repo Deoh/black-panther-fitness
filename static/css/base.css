@@ -4,13 +4,17 @@
   border: 0;
 }
 
-html {
-    height: 100%;
+a:hover {
+    text-decoration: none;
 }
 
-.content-padding {
-    padding-top: 55px;
-    padding-bottom: 55px;
+h5 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+html {
+    height: 100%;
 }
 
 .navbar-nav {
@@ -21,18 +25,30 @@ html {
     color: white;
 }
 
+.bg-orange {
+    background: #e54725;
+}
+
 /* Index page */
+.icon {}
+
 .info {
     max-width: 360px;
     margin: 0 auto;
     padding: 70px 0 30px;
+    
+}
+
+.info-title {}
+
+.features {
+    padding: 80px 0;
     text-align: center;
 }
 
-.info-title {
-    margin: 25px 0 15px;
-    padding: 0 15px;
-}
+.title {}
+
+.description {}
 
 .header-container {}
 
