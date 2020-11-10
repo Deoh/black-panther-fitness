@@ -67,7 +67,7 @@
 						<a class="nav-link" href="#">About Us</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Find a Gym</a>
+						<a class="nav-link" href="{% url 'instructors' %}">Instructor</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="{% url 'products' %}">Store</a>
@@ -95,7 +95,7 @@
 			</form>
             {% include 'includes/mobile-search.html' %}
 		</nav>
-        
+
 			{% block sub_nav %}
 			{% endblock %}
 
