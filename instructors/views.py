@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Instructor
 
 # Create your views here.
@@ -13,3 +13,15 @@ def all_instructors(request):
     }
 
     return render(request, 'instructors/instructors.html', context)
+
+
+def instructor_detail(request, instructor_id):
+    """ A view to show instructor details """
+
+    instructor = get_object_or_404(Instructor, pk=instructor_id)
+
+    context = {
+        'instructor': instructor,
+    }
+
+    return render(request, 'instructors/instructor_detail.html', context)

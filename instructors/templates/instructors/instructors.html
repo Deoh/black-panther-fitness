@@ -7,7 +7,7 @@
     </div>
 {% endblock %}
 
-{% block content %}
+{% block page_header %}
     <!-- Page Title -->
     <div class="instructor-homepage mb-6">
         <div class="overlay"></div>
@@ -22,6 +22,9 @@
 			</div>
 		</div>
     </div>
+{% endblock %}
+
+{% block content %}  
     <!-- Instructors -->
     <div class="container">
         <div class="row">    
@@ -32,7 +35,7 @@
                             <div class="row no-gutters">
                                 <div class="col-md-5">
                                     <div class="card-image">
-                                        <a href="">
+                                        <a href="{% url 'instructor_detail' instructor.id %}">
                                             <img src="{{ instructor.image.url }}" class="card-img img-fluid rounded-circle" alt="...">
                                         </a>
                                     </div>
@@ -59,7 +62,7 @@
                                 
                                 <div class="col-md-5 order-md-2">
                                     <div class="card-image">
-                                        <a href="">
+                                        <a href="{% url 'instructor_detail' instructor.id %}">
                                             <img src="{{ instructor.image.url }}" class="card-img img-fluid rounded-circle" alt="...">
                                         </a>
                                     </div>
