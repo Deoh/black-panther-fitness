@@ -1,7 +1,7 @@
 from decimal import Decimal
 from django.conf import settings
 
-"""Shopping bag functionality"""
+"""Shopping cart functionality"""
 
 
 def cart_contents(request):
