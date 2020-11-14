@@ -28,7 +28,7 @@ def add_to_cart(request, item_id):
             else:
                 cart[item_id]['items_by_size'][size] = quantity
         else:
-            # if item is not in cart add it
+            # if item is not in cart add it as a dictionary
             cart[item_id] = {'items_by_size': {size: quantity}}
     else:
         if item_id in list(cart.keys()):
