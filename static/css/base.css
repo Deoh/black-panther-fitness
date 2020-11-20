@@ -110,8 +110,41 @@ html {
 
 .product-details-container {}
 
+/* Instructor page */
+.instructor-homepage {
+    position: relative;
+    height: 75vh;
+    background: url('/media/jonathan-borba.jpg') no-repeat center center;
+    background-size: cover; 
+    margin-bottom: 50px;
+}
+
+.category {
+    text-transform: capitalize;
+    font-weight: 700;
+    color: #9A9A9A;
+}
+
+h6.category>ul {
+    list-style-type: none;
+}
+
+.instructor-card {
+    margin: 50px 0;
+}
+
 /* instructor_detail page */
 .instructor-details-container {}
+
+
+/* workout_class page */ 
+.workout-class-homepage {
+    position: relative;
+    height: 75vh;
+    background: url('/media/geert-pieters.jpg') no-repeat center center;
+    background-size: cover; 
+    margin-bottom: 50px;
+}
 
 /* from Bulma */
 .icon {
@@ -177,30 +210,6 @@ a.category-badge > span.badge:hover {
 .update-link,
 .remove-item {
     cursor: pointer;
-}
-
-/* Instructor page */
-
-.instructor-homepage {
-    position: relative;
-    height: 75vh;
-    background: url('/media/jonathan-borba.jpg') no-repeat center center;
-    background-size: cover; 
-    margin-bottom: 50px;
-}
-
-.category {
-    text-transform: capitalize;
-    font-weight: 700;
-    color: #9A9A9A;
-}
-
-h6.category>ul {
-    list-style-type: none;
-}
-
-.instructor-card {
-    margin: 50px 0;
 }
 
 @media (min-width: 992px) {    

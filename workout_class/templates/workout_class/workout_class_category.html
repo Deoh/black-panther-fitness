@@ -20,20 +20,18 @@
 
 {% block content %}
 <div class="container">
-    <!-- Page Title -->
     <div class="row">
         <div class="col">
-            <hr>
-            <h2 class="mb-4 text-uppercase">Workout classes page</h2>
-            <hr>
+            <h5 class="text-center">Whether you want to lose weight, tone up, gain muscle or improve strength and endurance levels, we have a wide variety of classes to achieve your goals in a friendly environment and with instructors to give your motivation a helping hand. Most classes are included in your membership at a dsicounted price. You can see our full list of classes here.</h5>
         </div>
     </div>
-    </div class="row">
-        {% for class in workout_class %}
-            </div class="col">
-                
-            </div>
-        {% endfor %}
+    <!-- Category -->
+    <div class="row">
+    {% for cat in category %}
+        <div class="col">
+            <a href="{% url 'workout_class' cat.id %}">{{ cat.friendly_name }}</a>
+        </div>
+    {% endfor %}
     </div>
 </div>
 {% endblock %}
