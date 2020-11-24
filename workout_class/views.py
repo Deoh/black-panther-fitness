@@ -35,3 +35,15 @@ def classes(request, category):
     }
 
     return render(request, 'workout_class/workout_class.html', context)
+
+
+def class_detail(request, class_id):
+    """ A view to show individual workout class details """
+
+    workout_class = get_object_or_404(WorkoutClass, pk=class_id)
+
+    context = {
+        'workout_class': workout_class,
+    }
+
+    return render(request, 'workout_class/class_detail.html', context)

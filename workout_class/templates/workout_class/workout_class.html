@@ -32,13 +32,14 @@
 			<div class="card mb-3" style="max-width: 540px;">
 				<div class="row no-gutters">
 					<div class="col-md-4">
-						<img src="{{ MEDIA_URL }}noimage.png" class="card-img" alt="...">
+                        <a href="{% url 'class_detail' class.id %}">
+						    <img src="{{ MEDIA_URL }}noimage.png" class="card-img" alt="...">
+                        </a>
 			        </div>
                     <div class="col-md-8">
                         <div class="card-body">
                             <h5 class="card-title">{{ class.name }}</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
+                            <p class="card-text">{{ class.description }}</p>
                             <p class="card-text"><small class="text-muted">{{ class.difficulty_level }}</small></p>
                         </div>
                     </div>
