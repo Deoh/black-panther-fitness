@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row mx-auto">
+        <div class="col-lg-3">
+            <a href="{% url 'products' %}" class="dropdown-item dropdown-header">All Products</a>
+            <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
+            <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item ">By Rating</a>
+            <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
+        </div>
+        <div class="col-lg-3">
+            <a href="{% url 'products' %}?category=activewear,trainers,shirts" class="dropdown-item dropdown-header">All Sportswear</a>
+            <a href="{% url 'products' %}?category=activewear" class="dropdown-item">Activewear</a>
+            <a href="{% url 'products' %}?category=trainers" class="dropdown-item">Trainers</a>
+            <a href="{% url 'products' %}?category=shirts" class="dropdown-item">Shirts</a>
+        </div>
+        <div class="col-lg-3">
+            <a href="{% url 'products' %}?category=dumbbells,water_bottles,resistance_bands" class="dropdown-item dropdown-header">All Accessories</a>
+            <a href="{% url 'products' %}?category=dumbbells" class="dropdown-item">Dumbbells</a>
+            <a href="{% url 'products' %}?category=water_bottles" class="dropdown-item">Water Bottles</a>
+            <a href="{% url 'products' %}?category=resistance_bands" class="dropdown-item">Resistance Bands</a>
+        </div>
+        <div class="col-lg-3">
+            <a href="{% url 'products' %}" class="dropdown-item dropdown-header">Vitamins & Health</a>
+            <a href="{% url 'products' %}?category=deals" class="dropdown-item">Deals</a>
+            <a href="{% url 'products' %}?category=proteins" class="dropdown-item">Proteins</a>
+            <a href="{% url 'products' %}?category=new_arrivals" class="dropdown-item">New Arrivals</a>
+        </div>
+    </div>
+</div>

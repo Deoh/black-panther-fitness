@@ -56,6 +56,17 @@ html {
     box-shadow: 0 0 0 0.2rem rgba(255, 83, 44, 0.514);
 }
 
+/* NAVBAR */
+
+.dropdown-header {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+}
+
 /* Index page */
 .icon {}
 
@@ -146,6 +157,10 @@ h6.category>ul {
     margin-bottom: 50px;
 }
 
+.category-card {
+    max-width: 350px;
+}
+
 /* from Bulma */
 .icon {
     align-items: center;
@@ -222,4 +237,8 @@ a.category-badge > span.badge:hover {
 .dropdown:hover .dropdown-menu {
     display: block;
     margin-top: 0; 
+ }
+
+ .pp {
+    color: rgba(255,255,255,.5)!important;
  }
