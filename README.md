@@ -14,7 +14,7 @@ shift + F5      hard page refresh
 
 my-auto     centers an element virtically
 
-
+https://logomakr.com/
 ## navbar
 
 #  nutrition tab for subscribers of premium server

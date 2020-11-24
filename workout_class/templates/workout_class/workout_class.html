@@ -20,20 +20,32 @@
 
 {% block content %}
 <div class="container">
-    <!-- Page Title -->
     <div class="row">
         <div class="col">
-            <hr>
-            <h2 class="mb-4 text-uppercase">Workout classes page</h2>
-            <hr>
+            <h5 class="text-center">Whether you want to lose weight, tone up, gain muscle or improve strength and endurance levels, we have a wide variety of classes to achieve your goals in a friendly environment and with instructors to give your motivation a helping hand. Most classes are included in your membership at a dsicounted price. You can see our full list of classes here.</h5>
         </div>
     </div>
-    </div class="row">
+    <!-- Workout  classes -->
+    <div class="row justify-content-center">
         {% for class in workout_class %}
-            </div class="col">
-                
+        <div class="col-sm-6 col-lg-4 col-xl-3">
+			<div class="card mb-3" style="max-width: 540px;">
+				<div class="row no-gutters">
+					<div class="col-md-4">
+						<img src="{{ MEDIA_URL }}noimage.png" class="card-img" alt="...">
+			        </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ class.name }}</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                                additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><small class="text-muted">{{ class.difficulty_level }}</small></p>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
         {% endfor %}
-    </div>
+    </div>     
 </div>
 {% endblock %}
