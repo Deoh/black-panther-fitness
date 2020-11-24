@@ -151,7 +151,7 @@ h6.category>ul {
 /* workout_class page */ 
 .workout-class-homepage {
     position: relative;
-    height: 75vh;
+    height: 40vh;
     background: url('/media/geert-pieters.jpg') no-repeat center center;
     background-size: cover; 
     margin-bottom: 50px;
@@ -230,6 +230,13 @@ a.category-badge > span.badge:hover {
 @media (min-width: 992px) {    
     .navbar-nav {
         margin-top: 0;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .dropdown-menu {
+        position: absolute!important;
+        left: -390px;
+        width: max-content;
     }
 }
 
