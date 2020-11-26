@@ -259,6 +259,19 @@ a.category-badge > span.badge:hover {
     cursor: pointer;
 }
 
+/* toasts */
+.message-container {}
+
+.toast {
+    position: absolute;
+    top: 72px;
+    right: 15px;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
 @media (min-width: 992px) {    
     .navbar-nav {
         margin-top: 0;
