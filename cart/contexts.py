@@ -50,7 +50,7 @@ def cart_contents(request):
 
     grand_total = delivery + total
 
-    contents = {
+    context = {
         'cart_items': cart_items,
         'total': total,
         'product_count': product_count,
@@ -60,4 +60,4 @@ def cart_contents(request):
         'grand_total': grand_total,
     }
 
-    return contents
+    return context

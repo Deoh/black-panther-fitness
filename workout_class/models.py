@@ -44,10 +44,11 @@ class WorkoutClass(models.Model):
         Instructor, null=True, blank=True, on_delete=models.SET_NULL)
     class_size = models.PositiveSmallIntegerField()
     equipment = models.ManyToManyField(
-        'Equipment', null=True, blank=True)
+        'Equipment', blank=True)
     difficulty_level = models.ForeignKey(
         'DifficultyLevel', null=True, blank=True, on_delete=models.SET_NULL)
     description = models.TextField()
+    price = models.DecimalField(max_digits=6, decimal_places=2)
     image = models.ImageField(blank=True)
 
     def __str__(self):

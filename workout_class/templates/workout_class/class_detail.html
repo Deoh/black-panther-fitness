@@ -28,33 +28,24 @@
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="workout_class-details-container mb-5 mt-md-5">
                     <p class="mb-0">{{ workout_class.name }}</p>
-                    <p class="lead mb-0 text-left font-weight-bold">£{{ workout_class.price }}</p>
-                    {% if workout_class.rating %}
-                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ workout_class.rating }} / 5</small>
+                    <p class="lead mb-0 text-left font-weight-bold">£{{ workout_class.price }} per session</p>
+                    <p class="lead mb-0 text-left ">duration: {{ workout_class.duration }} mins</p>
+                    <p class="lead mb-0 text-left font-weight-bold">Equipment Needed</p>
+                    {% if workout_class.equipment %}
+                        {% for equipment in workout_class.equipment.all %}
+                            <p class="text-muted">{{ equipment.friendly_name }}</p>
+                        {% endfor %}
                     {% else %}
-                        <small class="text-muted">No Rating</small>
+                        <small class="text-muted">No Equipment Needed</small>
                     {% endif %}
                     <p class="mt-3">{{ workout_class.description }}</p>
-                    <!-- Quantity input form, add to bag button & keep shopping button -->
+                    <!-- Session quantity input form, add to bag button & keep shopping button -->
                     <form class="form" action="{% url 'add_to_cart' workout_class.id %}" method="POST">
                         {% csrf_token %}
                         <div class="form-row">
-                            {% with workout_class.has_sizes as s %}
-                            {% if s %}
-                                <!-- Size -->
-                                <div class="col-12">
-                                    <p><strong>Size:</strong></p>
-                                    <select class="form-control rounded-0 w-50" name="workout_class_size" id="id_workout_class_size">
-                                        <option value="xs">XS</option>
-                                        <option value="s">S</option>
-                                        <option value="m" selected>M</option>
-                                        <option value="l">L</option>
-                                        <option value="xl">XL</option>
-                                    </select>
-                                </div>
-                            {% endif %}
+                            <!-- seesion quantity input form -->
                             <div class="col-12">
-                                <p class="mt-3"><strong>Quantity:</strong></p>
+                                <p class="mt-3"><strong>Session Quantity:</strong></p>
                                 <div class="form-group w-50">
                                     <div class="input-group">
                                         <!-- Plus -->
@@ -66,7 +57,7 @@
                                                 </span>
                                             </button>
                                         </div>
-                                        <!-- Quantity -->
+                                        <!-- Session Quantity -->
                                         <input class="form-control qty_input" type="number" 
                                             name="quantity" value="1" min="1" max="99" 
                                             data-item_id="{{ workout_class.id }}" 
@@ -83,18 +74,18 @@
                                     </div>
                                 </div>
                             </div>
-
+                            <!-- keep shopping input -->
                             <div class="col-12">
-                                <a href="" class="btn btn-outline-black rounded-0 mt-5">
+                                <a href="{% url 'categories' %}" class="btn btn-outline-black rounded-0 mt-5">
                                     <span class="icon">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
-                                    <span class="text-uppercase">Keep Shopping</span>
+                                    <span class="text-uppercase"> Back to Workout Classes</span>
                                 </a>
                                 <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Cart">
                             </div>
+                            <!-- redirect the user back to the same page once the workout class is added to the cart -->
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                            {% endwith %}
                         </div>
                     </form>
                 </div>
