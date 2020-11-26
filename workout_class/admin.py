@@ -11,7 +11,6 @@ class WorkoutClassAdmin(admin.ModelAdmin):
         'duration',
         'class_size',
         'instructor',
-        'equipment',
         'difficulty_level',
     )
 

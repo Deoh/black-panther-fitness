@@ -148,7 +148,7 @@ h6.category>ul {
 .instructor-details-container {}
 
 
-/* workout_class page */ 
+/* categories & workout_class page */ 
 .workout-class-homepage {
     position: relative;
     height: 40vh;
@@ -160,6 +160,38 @@ h6.category>ul {
 .category-card {
     max-width: 350px;
 }
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #2125297a;
+    border-radius: inherit;
+    
+}
+
+.class-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #e54725c7;
+    border-radius: inherit;
+}
+
+.card:hover .class-card-overlay {
+  opacity: 1;
+}
+
+.card:hover .class-card-overlay-reverse {
+  opacity: 0;
+}
+
 
 /* from Bulma */
 .icon {

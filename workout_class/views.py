@@ -29,9 +29,11 @@ def categories(request):
 def classes(request, category):
     """ A view to show workout classes """
     workout_class = WorkoutClass.objects.filter(category=category)
+    category = get_object_or_404(Category, pk=category)
 
     context = {
         'workout_class': workout_class,
+        'category': category,
     }
 
     return render(request, 'workout_class/workout_class.html', context)

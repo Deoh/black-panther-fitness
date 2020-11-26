@@ -43,11 +43,12 @@ class WorkoutClass(models.Model):
     instructor = models.ForeignKey(
         Instructor, null=True, blank=True, on_delete=models.SET_NULL)
     class_size = models.PositiveSmallIntegerField()
-    equipment = models.ForeignKey(
-        'Equipment', null=True, blank=True, on_delete=models.SET_NULL)
+    equipment = models.ManyToManyField(
+        'Equipment', null=True, blank=True)
     difficulty_level = models.ForeignKey(
         'DifficultyLevel', null=True, blank=True, on_delete=models.SET_NULL)
     description = models.TextField()
+    image = models.ImageField(blank=True)
 
     def __str__(self):
         return self.name

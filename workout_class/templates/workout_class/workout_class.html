@@ -10,7 +10,7 @@
 				<div class="col-md-6 mx-auto">
 					<div class="text-center text-uppercase text-white">
 						<h1>Workout Classes</h1>
-						<span class="subheading">To make finding the right classes for you even more simple, we have grouped our classes into the categories below.</span>
+						<span class="subheading">{{ category }}</span>
 					</div>
 				</div>
 			</div>
@@ -19,32 +19,36 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col">
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-8">
             <h5 class="text-center">Whether you want to lose weight, tone up, gain muscle or improve strength and endurance levels, we have a wide variety of classes to achieve your goals in a friendly environment and with instructors to give your motivation a helping hand. Most classes are included in your membership at a dsicounted price. You can see our full list of classes here.</h5>
         </div>
     </div>
     <!-- Workout  classes -->
-    <div class="row justify-content-center">
+    <div class="row justify-content-center my-4">
         {% for class in workout_class %}
         <div class="col-sm-6 col-lg-4 col-xl-3">
-			<div class="card mb-3" style="max-width: 540px;">
-				<div class="row no-gutters">
-					<div class="col-md-4">
-                        <a href="{% url 'class_detail' class.id %}">
-						    <img src="{{ MEDIA_URL }}noimage.png" class="card-img" alt="...">
-                        </a>
-			        </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ class.name }}</h5>
+			<div class="card text-center mx-auto mb-3 " style="width: 18rem;">
+                <a href="{% url 'class_detail' class.id %}">
+                    <!-- image -->
+                    <div class="image-overlay"></div>
+                    {% if class.image %}
+                        <img class="card-img img-fluid" src="{{ class.image.url }}" alt="{{ class.name }}">  
+                    {% else %}   
+                        <img class="card-img img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ class.name }}">            
+                    {% endif %}
+                    <!-- title -->
+                    <div class="card-body card-img-overlay text-white">
+                        <h5 class="card-title class-card-overlay-reverse">{{ class.name }}</h5> 
+                        <!-- hoverable description -->
+                        <div class="p-4 class-card-overlay">                      
                             <p class="card-text">{{ class.description }}</p>
-                            <p class="card-text"><small class="text-muted">{{ class.difficulty_level }}</small></p>
                         </div>
+                        <p class="card-text class-card-overlay-reverse"><small>{{ class.difficulty_level }}</small></p>
                     </div>
-                </div>
-            </div>
+                </a>
+			</div>
         </div>
         {% endfor %}
     </div>     
