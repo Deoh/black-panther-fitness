@@ -12,6 +12,7 @@ class WorkoutClassAdmin(admin.ModelAdmin):
         'class_size',
         'instructor',
         'difficulty_level',
+        'price',
     )
 
     ordering = ('difficulty_level',)

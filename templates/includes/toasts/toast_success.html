@@ -1,4 +1,5 @@
-<div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="5000">
+<div class="toast custom-toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="6000">
+    <div class="arrow-up arrow-success"></div>
     <div class="w-100 toast-capper bg-success"></div>
 	<div class="toast-header text-dark">
 		<strong class="mr-auto">Success!</strong>
@@ -7,6 +8,61 @@
         </button>
 	</div>
 	<div class="toast-body">
-		{{ message }}
+		<div class="row">
+            <div class="col">
+                {{ message }}
+                <hr class="mt-1 mb-3">
+            </div>
+		</div>
+        {% if grand_total %}
+            <h6 class="text-uppercase">my cart ({{ product_count }})</h6>
+            <div class="cart-toast-wrapper">
+                <!-- cart items -->
+                {% for item in cart_items %}
+                    <div class="row">
+                        <div class="col-3 my-1">
+                            <img class="w-100" src="{{ item.product.image.url }}">
+                        </div>
+                        <div class="col-9">
+                            <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                            <p class="my-0 small">Size: {% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
+                            <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <!-- grand total -->
+            <div class="row">
+                <div class="col">
+                    <strong><p class="mt-3 mb-1 text-black">
+                        Total{% if free_delivery_delta > 0 %} (Exc. delivery){% endif %}: 
+                        <span class="float-right">${{ total|floatformat:2 }}</span>
+                    </p></strong>
+                    {% if free_delivery_delta > 0 %}
+                        <p class="mb-0 p-2 bg-warning shadow-sm text-black text-center">
+                            Spend <strong>${{ free_delivery_delta }}</strong> more to get free next day delivery!
+                        </p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+					<a href="" class="btn btn-outline-orange">
+						<span class="icon">
+                            <i class="fas fa-chevron-right"></i>
+                        </span>
+						<span class="text-uppercase">view cart</span>
+					</a>
+                </div>
+                <div class="col-md-6">
+                    <a href="" class="btn btn-block btn-orange">
+                        <span class="text-uppercase">Checkout</span>
+                        <span class="icon">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        {% endif %}
 	</div>
 </div>
