@@ -26,10 +26,12 @@ def cart_contents(request):
                 item = get_object_or_404(WorkoutClass, pk=item_id)
             else:
                 item = get_object_or_404(Product, pk=item_id)
+
             total += item_data * item.price
             product_count += item_data
             cart_items.append({
                 'item_id': item_id,
+                'item_type': item_type,
                 'quantity': item_data,
                 'product': item,
             })

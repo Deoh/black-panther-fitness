@@ -19,6 +19,8 @@ class Category(models.Model):
 
 
 class Product(models.Model):
+    model_id = models.CharField(
+        max_length=20, default='product', editable=False)
     category = models.ForeignKey(
         'Category', null=True, blank=True, on_delete=models.SET_NULL)
     sku = models.CharField(max_length=254, null=True, blank=True)
