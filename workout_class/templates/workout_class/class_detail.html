@@ -2,96 +2,96 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
+<div class="container header-container">
+	<div class="row">
+		<div class="col"></div>
+	</div>
+</div>
 {% endblock %}
 
 {% block content %}
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
-                <div class="image-container my-5">
-                    {% if workout_class.image %}
-                        <a href="{{ workout_class.image.url }}" target="_blank">
-                            <img class="card-img-top img-fluid" src="{{ workout_class.image.url }}" alt="{{ workout_class.name }}">
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+			<div class="image-container my-5">
+				{% if workout_class.image %}
+				<a href="{{ workout_class.image.url }}" target="_blank">
+					<img class="card-img-top img-fluid" src="{{ workout_class.image.url }}" alt="{{ workout_class.name }}">
                         </a>
-                        {% else %}
-                        <a href="">
-                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ workout_class.name }}">
+					{% else %}
+					<a href="">
+						<img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ workout_class.name }}">
                         </a>
-                    {% endif %}
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-                <div class="workout_class-details-container mb-5 mt-md-5">
-                    <p class="mb-0">{{ workout_class.name }}</p>
-                    <p class="lead mb-0 text-left font-weight-bold">£{{ workout_class.price }} per session</p>
-                    <p class="lead mb-0 text-left ">duration: {{ workout_class.duration }} mins</p>
-                    <p class="lead mb-0 text-left font-weight-bold">Equipment Needed</p>
-                    {% if workout_class.equipment %}
-                        {% for equipment in workout_class.equipment.all %}
-                            <p class="text-muted">{{ equipment.friendly_name }}</p>
-                        {% endfor %}
-                    {% else %}
-                        <small class="text-muted">No Equipment Needed</small>
-                    {% endif %}
-                    <p class="mt-3">{{ workout_class.description }}</p>
-                    <!-- Session quantity input form, add to bag button & keep shopping button -->
-                    <form class="form" action="{% url 'add_to_cart' workout_class.id %}" method="POST">
-                        {% csrf_token %}
-                        <div class="form-row">
-                            <!-- seesion quantity input form -->
-                            <div class="col-12">
-                                <p class="mt-3"><strong>Session Quantity:</strong></p>
-                                <div class="form-group w-50">
-                                    <div class="input-group">
-                                        <!-- Plus -->
-                                        <div class="input-group-prepend">
-                                            <button class="decrement-qty btn btn-orange rounded-0" 
+						{% endif %}
+			</div>
+		</div>
+		<div class="col-12 col-md-6 col-lg-4">
+			<div class="workout_class-details-container mb-5 mt-md-5">
+				<p class="mb-0">{{ workout_class.name }}</p>
+				<p class="lead mb-0 text-left font-weight-bold">£{{ workout_class.price }} per session</p>
+				<p class="lead mb-0 text-left ">duration: {{ workout_class.duration }} mins</p>
+				<p class="lead mb-0 text-left font-weight-bold">Equipment Needed</p>
+				{% if workout_class.equipment %}
+				{% for equipment in workout_class.equipment.all %}
+				<p class="text-muted">{{ equipment.friendly_name }}</p>
+				{% endfor %}
+				{% else %}
+				<small class="text-muted">No Equipment Needed</small>
+				{% endif %}
+				<p class="mt-3">{{ workout_class.description }}</p>
+				<!-- Session quantity input form, add to bag button & keep shopping button -->
+				<form class="form" action="{% url 'add_to_cart' 'workout_class' workout_class.id %}" method="POST">
+					{% csrf_token %}
+					<div class="form-row">
+						<!-- seesion quantity input form -->
+						<div class="col-12">
+							<p class="mt-3"><strong>Session Quantity:</strong></p>
+							<div class="form-group w-50">
+								<div class="input-group">
+									<!-- Plus -->
+									<div class="input-group-prepend">
+										<button class="decrement-qty btn btn-orange rounded-0"
                                                 data-item_id="{{ workout_class.id }}" id="decrement-qty_{{ workout_class.id }}">
                                                 <span class="icon">
                                                     <i class="fas fa-minus"></i>
                                                 </span>
                                             </button>
-                                        </div>
-                                        <!-- Session Quantity -->
-                                        <input class="form-control qty_input" type="number" 
-                                            name="quantity" value="1" min="1" max="99" 
-                                            data-item_id="{{ workout_class.id }}" 
+									</div>
+									<!-- Session Quantity -->
+									<input class="form-control qty_input" type="number"
+                                            name="quantity" value="1" min="1" max="99"
+                                            data-item_id="{{ workout_class.id }}"
                                             id="id_qty_{{ workout_class.id }}">
-                                        <!-- Minus -->
-                                        <div class="input-group-append">
-                                            <button class="increment-qty btn btn-orange rounded-0"
+									<!-- Minus -->
+									<div class="input-group-append">
+										<button class="increment-qty btn btn-orange rounded-0"
                                                 data-item_id="{{ workout_class.id }}" id="increment-qty_{{ workout_class.id }}">
                                                 <span class="icon">
                                                     <i class="fas fa-plus"></i>
                                                 </span>
                                             </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- keep shopping input -->
-                            <div class="col-12">
-                                <a href="{% url 'categories' %}" class="btn btn-outline-black rounded-0 mt-5">
-                                    <span class="icon">
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- keep shopping input -->
+						<div class="col-12">
+							<a href="{% url 'categories' %}" class="btn btn-outline-black rounded-0 mt-5">
+								<span class="icon">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
-                                    <span class="text-uppercase"> Back to Workout Classes</span>
-                                </a>
-                                <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Cart">
+								<span class="text-uppercase"> Back to Workout Classes</span>
+							</a>
+							<input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Cart">
                             </div>
-                            <!-- redirect the user back to the same page once the workout class is added to the cart -->
-                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+							<!-- redirect the user back to the same page once the workout class is added to the cart -->
+							<input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
 {% endblock %}
 
 {% block extra_js %}

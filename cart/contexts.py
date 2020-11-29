@@ -2,6 +2,7 @@ from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
+from workout_class.models import WorkoutClass
 
 """Shopping cart functionality"""
 
@@ -14,16 +15,23 @@ def cart_contents(request):
     cart = request.session.get('cart', {})
 
     """Add to cart data"""
-    for item_id, item_data in cart.items():
-        # check to see if item has size by checking if item data is an integer
+    for session_key, item_data in cart.items():
+        item_type, item_id = session_key.split("/")
+        """
+        check to see if item has size by checking if item data is not
+        an integer
+        """
         if isinstance(item_data, int):
-            product = get_object_or_404(Product, pk=item_id)
-            total += item_data * product.price
+            if item_type == 'workout_class':
+                item = get_object_or_404(WorkoutClass, pk=item_id)
+            else:
+                item = get_object_or_404(Product, pk=item_id)
+            total += item_data * item.price
             product_count += item_data
             cart_items.append({
                 'item_id': item_id,
                 'quantity': item_data,
-                'product': product,
+                'product': item,
             })
         else:
             product = get_object_or_404(Product, pk=item_id)

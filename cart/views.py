@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse, HttpResponse, get_object
 from django.contrib import messages
 
 from products.models import Product
+from workout_class.models import WorkoutClass
 
 # Create your views here.
 
@@ -12,42 +13,48 @@ def view_cart(request):
     return render(request, 'cart/cart.html')
 
 
-def add_to_cart(request, item_id):
+def add_to_cart(request, item_type, item_id):
     """ Add a quantity of the specified product to the shopping cart """
 
-    product = get_object_or_404(Product, pk=item_id)
+    if item_type == 'workout_class':
+        item = get_object_or_404(WorkoutClass, pk=item_id)
+    else:
+        item = get_object_or_404(Product, pk=item_id)
+
+    session_key = "/".join((item_type, item_id))
+
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     size = None
-    if 'product_size' in request.POST:
+    if item_type == 'product' and 'product_size' in request.POST:
         size = request.POST['product_size']
     cart = request.session.get('cart', {})
 
     if size:  # this is to check if a product with sizes is being added
-        if item_id in list(cart.keys()):
+        if session_key in cart.keys():
             # if item is in the cart
-            if size in cart[item_id]['items_by_size'].keys():
+            if size in cart[session_key]['items_by_size'].keys():
                 # if item and size exist in the cart increment qty
-                cart[item_id]['items_by_size'][size] += quantity
+                cart[session_key]['items_by_size'][size] += quantity
                 messages.success(
-                    request, f'Updated size {size.upper()} {product.name} quantity to {cart[item_id]["items_by_size"][size]}')
+                    request, f'Updated size {size.upper()} {item.name} quantity to {cart[session_key]["items_by_size"][size]}')
             else:
-                cart[item_id]['items_by_size'][size] = quantity
+                cart[session_key]['items_by_size'][size] = quantity
                 messages.success(
-                    request, f'Added size {size.upper()} {product.name} to your cart')
+                    request, f'Added size {size.upper()} {item.name} to your cart')
         else:
             # if item is not in cart add it as a dictionary
-            cart[item_id] = {'items_by_size': {size: quantity}}
+            cart[session_key] = {'items_by_size': {size: quantity}}
             messages.success(
-                request, f'Added size {size.upper()} {product.name} to your cart')
+                request, f'Added size {size.upper()} {item.name} to your cart')
     else:
-        if item_id in list(cart.keys()):
-            cart[item_id] += quantity
+        if session_key in list(cart.keys()):
+            cart[session_key] += quantity
             messages.success(
-                request, f'Updated {product.name} quatity to {cart[item_id]}')
+                request, f'Updated {item.name} quatity to {cart[session_key]}')
         else:
-            cart[item_id] = quantity
-            messages.success(request, f'Added {product.name} to your cart')
+            cart[session_key] = quantity
+            messages.success(request, f'Added {item.name} to your cart')
 
     request.session['cart'] = cart
     return redirect(redirect_url)
