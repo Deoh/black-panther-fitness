@@ -37,7 +37,11 @@
                             {% if item.item_type == 'product' %}
                                 <tr>
                                     <td class="p-3 w-25">
-                                        <img class="img-fluid rounded" src="{{ item.product.image.url }}">
+                                        {% if item.product.image %}
+                                            <img class="img-fluid rounded" src="{{ item.product.image.url }}">
+                                        {% else %}
+                                            <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">   
+                                        {% endif %}
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0"><strong>{{ item.product.name }}</strong></p>
@@ -113,7 +117,7 @@
                         <li class="list-group-item d-flex justify-content-between">Delivery:<span>£{{ delivery|floatformat:2 }}</span></li>
                         <li class="list-group-item d-flex justify-content-between font-weight-bold text-uppercase">Grand Total:<span>£{{ grand_total|floatformat:2 }}</span></li>
                     </ul>
-                    <a href="" class="btn btn-block btn-orange">
+                    <a href="{% url 'checkout' %}" class="btn btn-block btn-orange">
                         <span class="text-uppercase">Secure Checkout</span>
                         <span class="icon">
                             <i class="fas fa-lock"></i>
