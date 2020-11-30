@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'instructors',
     'workout_class',
     'cart',
+    'checkout',
 ]
 
 MIDDLEWARE = [

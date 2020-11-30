@@ -6,6 +6,7 @@ from .models import Category, Equipment, DifficultyLevel, WorkoutClass
 
 class WorkoutClassAdmin(admin.ModelAdmin):
     list_display = (
+        'sku',
         'name',
         'category',
         'duration',
