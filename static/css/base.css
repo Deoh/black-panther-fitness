@@ -21,19 +21,26 @@ html {
         margin-top: 30px;
     }
 
-.nav-link-color {
+/* .nav-link-color {
     color: white;
+} */
+.border {
+        border: 1px solid #000!important;
+}
+
+.icon-black {
+    color: #000;
 }
 
 .bg-orange {
-    background: #e54725;
+    background: #e28108fa;
 }
 
 /* button */
 .btn-orange {
     color: #fff;
-    background-color: #e54725;
-    border-color: #e54725;
+    background-color: #e28108fa;
+    border-color: #e28108fa;
 }
 .btn-orange:hover {
     color: #fff;
@@ -49,11 +56,16 @@ html {
 }
 .btn-outline-orange:hover {
     color: #fff;
-    background-color: #e54725;
-    border-color: #e54725;
+    background-color: #e28108fa;
+    border-color: #e28108fa;
 }
 .btn-outline-orange:focus {
     background-color: #c43e20;
+    border-color: #c43e20;
+    box-shadow: 0 0 0 0.2rem rgba(255, 83, 44, 0.514);
+}
+
+.form-control:focus {
     border-color: #c43e20;
     box-shadow: 0 0 0 0.2rem rgba(255, 83, 44, 0.514);
 }
