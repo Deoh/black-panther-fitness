@@ -67,8 +67,6 @@ class OrderLineItem(models.Model):
                               related_name='lineitems')
     product = models.ForeignKey(
         Product, null=False, blank=False, on_delete=models.CASCADE)
-    workout_class = models.ForeignKey(
-        WorkoutClass, null=False, blank=False, on_delete=models.CASCADE)
     product_size = models.CharField(
         max_length=2, blank=True)  # XS, S, M, L, XL
     quantity = models.IntegerField(null=False, blank=False, default=0)
@@ -81,14 +79,35 @@ class OrderLineItem(models.Model):
         Override the original save method to set the lineitem total
         and update the order total.
         """
-        if self.product:
-            self.lineitem_total = self.product.price * self.quantity
-        else:
-            self.lineitem_total = self.workout_class.price * self.quantity
+        self.lineitem_total = self.product.price * self.quantity
         super().save(*args, **kwargs)
 
     def __str__(self):
-        if self.product:
-            return f'SKU {self.product.sku} on order {self.order.order_number}'
-        else:
+        return f'SKU {self.product.sku} on order {self.order.order_number}'
+
+
+class OrderLineClass(models.Model):
+
+    class Meta:  # fix name in admin
+        verbose_name_plural = 'Order Line Classes'
+
+    order = models.ForeignKey(Order, null=False, blank=False,
+                              on_delete=models.CASCADE,
+                              related_name='lineclasses')
+    workout_class = models.ForeignKey(
+        WorkoutClass, null=False, blank=False, on_delete=models.CASCADE)
+    sessions = models.IntegerField(null=False, blank=False, default=0)
+    lineitem_total = models.DecimalField(max_digits=6, decimal_places=2,
+                                         null=False, blank=False,
+                                         editable=False)
+
+    def save(self, *args, **kwargs):
+        """
+        Override the original save method to set the lineitem total
+        and update the order total.
+        """
+        self.lineitem_total = self.workout_class.price * self.sessions
+        super().save(*args, **kwargs)
+
+    def __str__(self):
             return f'SKU {self.workout_class.sku} on order {self.order.order_number}'

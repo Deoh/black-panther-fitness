@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.conf import settings
 
 from .forms import OrderForm
-from .models import Order, OrderLineItem
+from .models import Order, OrderLineItem, OrderLineClass
 from products.models import Product
 from workout_class.models import WorkoutClass
 from cart.contexts import cart_contents
@@ -43,13 +43,13 @@ def checkout(request):
                         item = get_object_or_404(Product, pk=item_id)
                     if isinstance(item_data, int):
                         if item_type == 'workout_class':
-                            order_line_item = OrderLineItem(
+                            order_line_class = OrderLineClass(
                                 order=order,
                                 workout_class=item,
 
-                                quantity=item_data,
+                                sessions=item_data,
                             )
-                            order_line_item.save()
+                            order_line_class.save()
                         else:
                             order_line_item = OrderLineItem(
                                 order=order,
