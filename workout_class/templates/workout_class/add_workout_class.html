@@ -7,18 +7,34 @@
             <div class="col-12 col-md-6">
                 <hr>
                 <h2 class="logo-font mb-4">Class Management</h2>
-                <h5 class="text-muted">Add a Class</h5>
                 <hr>
             </div>
         </div>
 
 		<div class="row">
 			<div class="col-12 col-md-6">
+                <hr>
+                <h5 class="text-muted">Add a Class</h5>
+                <hr>
 				<form method="POST" action="{% url 'add_workout_class' %}" class="form mb-2" enctype="multipart/form-data">
 					{% csrf_token %}
 					{{ form | crispy }}
 					<div class="text-right">
-						<a class="btn btn-outline-orange" href="{% url 'products' %}">Cancel</a>
+						<a class="btn btn-outline-orange" href="{% url 'categories' %}">Cancel</a>
+						<button class="btn btn-orange" type="submit">Add Class</button>
+					</div>
+				</form>
+			</div>
+            <div class="col-12 col-md-6">
+                <hr>
+                <h5 class="text-muted">Add a Equipment (<span class="text-muted small">if not in list</span>)</h5>
+                <hr>
+                <p lass="text-muted small">'Name' field must have an underscore between first and last name (eg. firstname_lastname)</p>
+				<form method="POST" action="{% url 'add_workout_class' %}" class="form mb-2" enctype="multipart/form-data">
+					{% csrf_token %}
+					{{ form_equipment | crispy }}
+					<div class="text-right">
+						<a class="btn btn-outline-orange" href="{% url 'add_workout_class' %}">Cancel</a>
 						<button class="btn btn-orange" type="submit">Add Class</button>
 					</div>
 				</form>
