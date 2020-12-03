@@ -74,3 +74,29 @@ def add_workout_class(request):
     }
 
     return render(request, template, context)
+
+
+def edit_workout_class(request, workout_class_id):
+    """ Edit a workout_class in the store """
+    workout_class = get_object_or_404(WorkoutClass, pk=workout_class_id)
+
+    if request.method == 'POST':
+        form = WorkoutClassForm(request.POST, request.FILES, instance=workout_class)
+        # Class form
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated workout_class!')
+            return redirect(reverse('workout_class_detail', args=[workout_class.id]))
+        else:
+            messages.error(request, 'Failed to update workout_class. Please ensure the form is valid.')
+    else:
+        form = WorkoutClassForm(instance=workout_class)
+        messages.info(request, f'You are editing {workout_class.name}')
+
+    template = 'workout_classs/edit_workout_class.html'
+    context = {
+        'form': form,
+        'workout_class': workout_class,
+    }
+
+    return render(request, template, context)
