@@ -1,1 +1,1 @@
-web: gunicorn black-panther-fitness.wsgi:application
+web: gunicorn black_panther_fitness.wsgi:application
