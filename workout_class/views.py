@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404
+
 from .models import WorkoutClass, Category
+from .forms import WorkoutClassForm
 
 # Create your views here.
 
@@ -38,3 +40,14 @@ def class_detail(request, class_id):
     }
 
     return render(request, 'workout_class/class_detail.html', context)
+
+
+def add_workout_class(request):
+    """ Add a workout class to the website """
+    form = WorkoutClassForm()
+    template = 'workout_class/add_workout_class.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
