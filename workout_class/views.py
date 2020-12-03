@@ -1,4 +1,5 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.contrib import messages
 
 from .models import WorkoutClass, Category
 from .forms import WorkoutClassForm, EquipmentForm
@@ -44,8 +45,28 @@ def class_detail(request, class_id):
 
 def add_workout_class(request):
     """ Add a workout class to the website """
-    form = WorkoutClassForm()
-    form_equipment = EquipmentForm()
+
+    if request.method == 'POST':  # post handler for the add workout class view
+        form = WorkoutClassForm(request.POST, request.FILES)  # request.FILES makes sure to get the image of the class if one was submitted in POST.
+        form_equipment = EquipmentForm(request.POST)
+        # Class form
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added Class!')
+            return redirect(reverse('add_workout_class'))
+        else:
+            messages.error(request, 'Failed to add Class. Please ensure the form is valid.')
+        # Equipment form
+        if form_equipment.is_valid():
+            form_equipment.save()
+            messages.success(request, 'Successfully added Equipment!')
+            return redirect(reverse('add_workout_class'))
+        else:
+            messages.error(request, 'Failed to add Equipment. Please ensure the form is valid.')
+    else:
+        form = WorkoutClassForm()
+        form_equipment = EquipmentForm()
+
     template = 'workout_class/add_workout_class.html'
     context = {
         'form': form,
