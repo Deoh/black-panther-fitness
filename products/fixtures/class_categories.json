@@ -1,0 +1,17 @@
+[
+  {
+    "pk": 1,
+    "model": "workout_class.category",
+    "fields": { "name": "strength", "friendly_name": "Strength" }
+  },
+  {
+    "pk": 2,
+    "model": "workout_class.category",
+    "fields": { "name": "cardio", "friendly_name": "Cardio" }
+  },
+  {
+    "pk": 3,
+    "model": "workout_class.category",
+    "fields": { "name": "holist", "friendly_name": "Holistic" }
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "pk": 1,
+    "model": "instructors.category",
+    "fields": { "name": "cardio", "friendly_name": "Cardio" }
+  },
+  {
+    "pk": 2,
+    "model": "instructors.category",
+    "fields": { "name": "core_body_fitness", "friendly_name": "Core Body Fitness" }
+  },
+  {
+    "pk": 3,
+    "model": "instructors.category",
+    "fields": { "name": "yoga", "friendly_name": "Yoga" }
+  },
+  {
+    "pk": 4,
+    "model": "instructors.category",
+    "fields": { "name": "martial_arts", "friendly_name": "Martial Arts" }
+  },
+  {
+    "pk": 5,
+    "model": "instructors.category",
+    "fields": { "name": "bodybuilding", "friendly_name": "Bodybuilding" }
+  },
+  {
+    "pk": 6,
+    "model": "instructors.category",
+    "fields": { "name": "general_fitness", "friendly_name": "General Fitness" }
+  }
+]

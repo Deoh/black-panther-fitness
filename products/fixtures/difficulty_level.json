@@ -1,0 +1,17 @@
+[
+  {
+    "pk": 1,
+    "model": "workout_class.DifficultyLevel",
+    "fields": { "name": "beginner", "description": "This is for thoughs that are ne to the gym" }
+  },
+  {
+    "pk": 2,
+    "model": "workout_class.DifficultyLevel",
+    "fields": { "name": "intermediate", "description": "regular gym goes, looking for something a little more challenging" }
+  },
+  {
+    "pk": 3,
+    "model": "workout_class.DifficultyLevel",
+    "fields": { "name": "advanced", "description": "need to be in goo shape. intensity is high" }
+  }
+]
