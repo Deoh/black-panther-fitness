@@ -349,7 +349,7 @@ a.category-badge > span.badge:hover {
         flex-direction: row;
         justify-content: space-around;
     }
-    .dropdown-menu {
+    .store-dropdown-menu {
         position: absolute!important;
         left: -390px;
         width: max-content;
