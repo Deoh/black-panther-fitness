@@ -27,7 +27,7 @@ SECRET_KEY = SECRET_KEY = os.environ.get('SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = ['https://black-panther-fitness-dh.herokuapp.com/', 'localhost']
+ALLOWED_HOSTS = ['black-panther-fitness-dh.herokuapp.com', 'localhost']
 
 
 # Application definition
