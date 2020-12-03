@@ -86,6 +86,9 @@ TEMPLATES = [
                 'cart.contexts.cart_contents',
             ],
             'builtins': [
+                # 'builtins' contain all the tags we want available in all
+                # our templates by default instead of using
+                # {% load crispy_forms_tags %} in each template.
                 'crispy_forms.templatetags.crispy_forms_tags',
                 'crispy_forms.templatetags.crispy_forms_field',
             ]
