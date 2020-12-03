@@ -51,9 +51,9 @@ def add_workout_class(request):
         form_equipment = EquipmentForm(request.POST)
         # Class form
         if form.is_valid():
-            form.save()
+            workout_class = form.save()
             messages.success(request, 'Successfully added Class!')
-            return redirect(reverse('add_workout_class'))
+            return redirect(reverse('class_detail', args=[workout_class.id]))
         else:
             messages.error(request, 'Failed to add Class. Please ensure the form is valid.')
         # Equipment form
@@ -100,3 +100,11 @@ def edit_workout_class(request, workout_class_id):
     }
 
     return render(request, template, context)
+
+
+def delete_workout_class(request, workout_class_id):
+    """ Delete a class from the website """
+    workout_class = get_object_or_404(WorkoutClass, pk=workout_class_id)
+    workout_class.delete()
+    messages.success(request, 'Class deleted!')
+    return redirect(reverse('categories'))

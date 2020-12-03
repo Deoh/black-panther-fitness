@@ -38,6 +38,12 @@
 				{% else %}
 				<small class="text-muted">No Equipment Needed</small>
 				{% endif %}
+                {% if request.user.is_superuser %}
+                    <small class="ml-3">
+                        <a href="{% url 'edit_workout_class' workout_class.id %}">Edit</a> | 
+                        <a class="text-danger" href="{% url 'delete_workout_class' workout_class.id %}">Delete</a>
+                    </small>
+                {% endif %}
 				<p class="mt-3">{{ workout_class.description }}</p>
 				<!-- Session quantity input form, add to cart button & keep shopping button -->
 				<form class="form" action="{% url 'add_to_cart' 'workout_class' workout_class.id %}" method="POST">
