@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 from .models import WorkoutClass, Category
 from .forms import WorkoutClassForm, EquipmentForm
@@ -43,8 +44,12 @@ def class_detail(request, class_id):
     return render(request, 'workout_class/class_detail.html', context)
 
 
+@login_required
 def add_workout_class(request):
     """ Add a workout class to the website """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
 
     if request.method == 'POST':  # post handler for the add workout class view
         form = WorkoutClassForm(request.POST, request.FILES)  # request.FILES makes sure to get the image of the class if one was submitted in POST.
@@ -76,8 +81,13 @@ def add_workout_class(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_workout_class(request, workout_class_id):
     """ Edit a workout_class in the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
     workout_class = get_object_or_404(WorkoutClass, pk=workout_class_id)
 
     if request.method == 'POST':
@@ -102,8 +112,13 @@ def edit_workout_class(request, workout_class_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_workout_class(request, workout_class_id):
     """ Delete a class from the website """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
     workout_class = get_object_or_404(WorkoutClass, pk=workout_class_id)
     workout_class.delete()
     messages.success(request, 'Class deleted!')
