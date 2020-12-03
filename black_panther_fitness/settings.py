@@ -27,7 +27,7 @@ SECRET_KEY = 'rmtbo48gl%&tmx2jp2v+o28@m8ljc)=!8jb&(xxwhc)nc(j=v%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://black-panther-fitness-dh.herokuapp.com/', 'localhost']
 
 
 # Application definition
@@ -125,17 +125,17 @@ WSGI_APPLICATION = 'black_panther_fitness.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# if 'DATABASE_URL' in os.environ:
-DATABASES = {
-    'default': dj_database_url.parse('postgres://fzccelsqvfbkwg:eaaf243adc4a581bfcbfae2a781ba62a2e9eace3ba32eda6c9e0f5182bfa8cda@ec2-176-34-97-213.eu-west-1.compute.amazonaws.com:5432/dau63kgj2s71r2')
-}
-# else:
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.sqlite3',
-#             'NAME': BASE_DIR / 'db.sqlite3',
-#         }
-#     }
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 
 # Password validation
