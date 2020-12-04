@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   border: 0;
+  font-family: 'Concert One', cursive;
 }
 
 html {
@@ -35,6 +36,10 @@ a.nav-link {
 
 .bg-orange {
     background: #e28108fa;
+}
+
+.text-light-orange {
+    color: #e0d3c4fa;
 }
 
 .overlay {
