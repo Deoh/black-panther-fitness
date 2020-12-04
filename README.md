@@ -1,4 +1,4 @@
-# Black Panther Fitness
+
 
 ## project tips
 ### testing
@@ -72,7 +72,7 @@ as well as workout classes and instructors to aid in there pursuit of a healthie
 
 - The wireframes for the initial layout of the website were made using [Microsoft Whiteboard](https://www.microsoft.com/en-gb/microsoft-365/microsoft-whiteboard/digital-whiteboard-app) and you can view the wireframes for this site [here]().
 
-- The design layout includes Desktop Mobile - portrait and landscape views
+- The design layout includes Desktop and Mobile - portrait and landscape views
 
 
 #### Variation Between Wireframes and Final Product
@@ -80,72 +80,81 @@ as well as workout classes and instructors to aid in there pursuit of a healthie
 During the styling phase of the website I stuck to the original wireframe design however; after viewing it live I felt that it brought down the overall design level of the website. It is with this in mind, I did not use the following:
 
  
-Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
-
-In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
-- As a user type, I want to perform an action, so that I can achieve a goal.
-
-This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included as a pdf file in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
 
 ## Features
-
-In this section, you should go over the different parts of your project, and describe each in a sentence or so.
- 
 ### Existing Features
-- Feature 1 - allows users X to achieve Y, by having them fill out Z
-- ...
+#### Landing Page
+ - The landing page was design to not overwhelm the user when the first visit the site. it has a large backgound image with a page title and a button for users to sign up. The button disappears when the user is logged in.
+ - below the backgound image are 3 large responsive links acting like a stylish navigation. When clicked show take the user to the 3 main parts of the site.
+#### Navigation bar
+#### Cart Page
+#### Checkout Page
+#### Add Workout Class Page
 
-For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
 
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
+#### Additional features to be implemented in the future:
+- Add a feature within me/my profile navigation link to allow for users to input there biometrics and have it saved in the database to allow for users to track there progress over time. similar to the way the users name and address are store for ease of purchase and delivery.
+- a page for users to be able to find and purchase workout routines and nutrition plans.
+- A fitness package page that offers a combination of workout classes based on a theme like preperation for the [Ironman](https://www.ironman.com/) competition or white collar boxing.
+    - the fitness packages will also discounted based on a set quantity of seesions pre-packaged.
+- 
 
 ### Features Left to Implement
-- Another feature idea
+- fix adding non square images to the datsbase as to not brake the layout of the site
+- add a hoverable bootstrap tooltips to difficulty level shown on the workout class detail page. it will show little description for beginner, intermediate and advanced.
+- add an about us page and a footer.
+- style the landing page.
+- fix the quantity buttons border on all relevent pages to match the theme of the site.
+- include the relevent text information where needed.
+- in the classes opening categories page move the text from the html to the database through adding a description field to the modal.
+- add a page showing the gym location.
+- update the workout class detail page to show class availability (days and time) by creating additional modals.
+- fix the time field on the workout class modal
+- style the navbar dropdowns and the nav fonts
+- style the instructor page to match the design layout of the workout class pages
+- add the instructor detail page
 
 ## Technologies Used
 
-In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
+- [HTML](https://html.com)
 
-- [JQuery](https://jquery.com)
-    - The project uses **JQuery** to simplify DOM manipulation.
+- CSS
+
+- [Font Awesome](https://fontawesome.com/)
+
+- [Javascript](https://www.javascript.com)
+
+- [JQuery](https://jquery.com) - javascript library
+
+- [Python](https://www.python.org/) - Programming language
+
+- [Django](https://www.djangoproject.com/) - web application framework
+
+- [Stripe](https://stripe.com/gb) - Online payment processing
+
+- [Bootstrap](https://getbootstrap.com/) - The project uses **Bootstrap**, a front-end framework to to help build a responsive, mobile-first website.
+
+- [Heroku](https://dashboard.heroku.com) - Deployment
+
+- [Amazon Web Service](https://aws.amazon.com/) - Object data storage, media and static files
 
 
 ## Testing
 
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
-
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
-
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
-
-1. Contact form:
-    1. Go to the "Contact Us" page
-    2. Try to submit the empty form and verify that an error message about the required fields appears
-    3. Try to submit the form with an invalid email address and verify that a relevant error message appears
-    4. Try to submit the form with all inputs valid and verify that a success message appears.
-
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
-
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
-
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
+to run a  report type in the CLI:
+- coverage run --source=app-name manage.py test
+- coverage report
+    - to create an interactive html repot: 
+- coverage html
+- python3 -m http.server
 
 ## Deployment
-
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
-
-In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
-- Different values for environment variables (Heroku Config Vars)?
-- Different configuration files?
-- Separate git branch?
-
-In addition, if it is not obvious, you should also describe how to run your code locally.
 
 
 ## Credits
 
 ### Content
-- The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
+- Some of the text for the workout class page was taken from [Puregym](https://www.puregym.com/) website
 
 ### Media
 - The photos used in this site were obtained from :
