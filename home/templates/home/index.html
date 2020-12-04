@@ -1,19 +1,27 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block content %}
+{% block page_header %}
     <!-- hompage  -->
-    <div class="container-fluid homepage-container px-5">
-        <div class="row h-100">
-            <div class="col-7 col-md-6 my-auto">
-                <h1 class="display-4 text-dark">Index page with slogan for the hompage.</h1>
-				<div class="my-5">
-					<h4><a href="" class="btn btn-dark py-3">Sign Up!</a></h4>
+    <div class="homepage-container  px-5 mb-6">
+        <div class="overlay"></div>
+		<div class="container h-100">
+			<div class="row h-100 align-items-center">
+				<div class="col-md-7 my-auto">
+					<h1 class="lead-font text-white">Workouts class and products to help you lead a health life.</h1>
+                    {% if request.user.is_authenticated %}
+                    {% else %}
+                    <div class="mt-5">
+                        <h4><a href="{% url 'account_signup' %}" class="btn btn-orange py-3">Sign Up!</a></h4>
+                    </div>
+                    {% endif %}
 				</div>
-            </div>
-            
-        </div>
+			</div>
+		</div>
     </div>
+{% endblock %}
+
+{% block content %}    
     <!-- Features section -->
     <div class="features">
         <div class="container">

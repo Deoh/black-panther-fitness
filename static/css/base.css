@@ -4,6 +4,10 @@
   border: 0;
 }
 
+html {
+    height: 100%;
+}
+
 a:hover {
     text-decoration: none;
 }
@@ -13,19 +17,16 @@ h5 {
     margin-bottom: 15px;
 }
 
-html {
-    height: 100%;
+a.nav-link {
+    color: inherit;
 }
 
-.navbar-nav {
-        margin-top: 30px;
-    }
-
-/* .nav-link-color {
-    color: white;
-} */
 .border {
         border: 1px solid #000!important;
+}
+
+.uppercase-font {
+    text-transform: uppercase;
 }
 
 .icon-black {
@@ -36,7 +37,17 @@ html {
     background: #e28108fa;
 }
 
-/* button */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #212529;
+    opacity: .6;
+}
+
+/* --------------------------- button --------------------------- */
 .btn-orange {
     color: #fff;
     background-color: #e28108fa;
@@ -50,7 +61,7 @@ html {
 .btn-orange:focus {
     box-shadow: 0 0 0 0.2rem rgba(255, 83, 44, 0.514);
 }
-/* #e28108fa */
+
 .btn-outline-orange {
     color: #000;
 }
@@ -70,7 +81,43 @@ html {
     box-shadow: 0 0 0 0.2rem rgba(255, 83, 44, 0.514);
 }
 
+/* product category button */
+a.category-badge {
+    color: #000 !important;
+}
+
+a.category-badge > span.badge:hover {
+    background: #ec9410 !important;
+    color: #fff !important;
+}
+
+/* back to top button */
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btt-link,
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
+
+input[name='q']::placeholder {
+    color: #aab7c4;
+}
+
 /* ------------------------------ NAVBAR ------------------------------*/
+.mobile-search-bar {
+    margin-top: 72px;
+}
+
+.navbar-nav {
+        margin-top: 30px;
+    }
 
 .dropdown-header {
     display: inline-block;
@@ -81,26 +128,39 @@ html {
     letter-spacing: .1em;
 }
 
-@media (min-width: 992px) {    
+@media (min-width: 992px) {
+     /* changes the layout of the burgermenu dropdown */
     .navbar-nav {
         margin-top: 0;
         flex-direction: row;
         justify-content: space-around;
     }
+    /* dropdown reposition */
     .store-dropdown-menu {
         position: absolute!important;
         left: -390px;
         width: max-content;
     }
+    /* Hoverable dropdown */
+    .dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0; 
+    }
 }
 
-/* Hoverable dropdown */
-.dropdown:hover .dropdown-menu {
-    display: block;
-    margin-top: 0; 
- }
 
 /* ------------------------------ Index page ------------------------------ */
+.lead-font {
+    font-size: 35px;
+    font-weight: 300;
+    line-height: 1.2;
+}
+@media (min-width: 568px) {
+    .lead-font {
+        font-size: 56px
+    }
+}
+
 .icon {}
 
 .info {
@@ -124,37 +184,22 @@ html {
 .header-container {}
 
 .homepage-container {
+    position: relative;
     height: 75vh;
-    background: url('/media/fp.jpg') no-repeat center center fixed; 
+    background: url('/media/fp.jpg') no-repeat center top fixed; 
     background-color: grey;
     background-size: cover; 
 }
 
 .product-container {}
 
-/* cart page */
-/* .cart-header {
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    font-weight: bold;
-    padding: 1.2rem 2rem;
-    background: #f8f9fa;
-}
 
-.cart-body {
-    padding: 0 30px;
-}
-
-.cart-img {
-    max-width: 100px;
-} */
-
-/* product_detail page */
+/* --------------------------------- product_detail page --------------------------------- */
 .image-container {}
 
 .product-details-container {}
 
-/* Instructor page */
+/* --------------------------------- Instructor page ---------------------------------  */
 .instructor-homepage {
     position: relative;
     height: 75vh;
@@ -177,11 +222,11 @@ h6.category>ul {
     margin: 50px 0;
 }
 
-/* instructor_detail page */
+/* --------------------------------- instructor_detail page --------------------------------- */
 .instructor-details-container {}
 
 
-/* categories & workout_class page */ 
+/* --------------------------------- categories & workout_class page --------------------------------- */ 
 .workout-class-homepage {
     position: relative;
     height: 40vh;
@@ -235,66 +280,6 @@ h6.category>ul {
     width: 1.5rem;
 }
 
-.mobile-search-bar {
-    margin-top: 72px;
-}
-
-a.nav-link {
-    color: inherit;
-}
-
-.uppercase-font {
-    text-transform: uppercase;
-}
-
-/* .overlay {
-	height: 100%;
-	width: 100%;
-	top: 0;
-	left: 0;
-	position: fixed;
-	background: white;
-	z-index: -1;
-} */
-
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: #212529;
-    opacity: .6;
-}
-
-/* product category button */
-a.category-badge {
-    color: #000 !important;
-}
-
-a.category-badge > span.badge:hover {
-    background: #ec9410 !important;
-    color: #fff !important;
-}
-
-/* back to top button */
-.btt-button {
-    height: 42px;
-    width: 42px;
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-}
-
-.btt-link,
-.update-link,
-.remove-item {
-    cursor: pointer;
-}
-
-input[name='q']::placeholder {
-    color: #aab7c4;
-}
 
 /* -------------------------------- toasts -------------------------------- */
 .message-container {}
